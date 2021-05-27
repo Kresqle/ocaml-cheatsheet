@@ -1,0 +1,22 @@
+{
+  "name": "ocaml-cheatsheet",
+  "version": "1.0.0",
+  "description": "Personal documentation for some Ocaml features",
+  "main": "build/index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "makedoc": "tsc && node build/makedoc.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "@TheEmrio/ocaml-cheatsheet"
+  },
+  "keywords": [
+    "ocaml",
+    "cheatsheet",
+    "docs"
+  ],
+  "author": "Emrio <emrio@emrio.fr> (emrio.fr)",
+  "license": "MIT"
+}
