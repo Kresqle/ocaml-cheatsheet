@@ -1,0 +1,688 @@
+{
+  "title": "Ocaml Cheatsheet",
+  "chapters": [
+    {
+      "name": "tests",
+      "title": "Tests",
+      "complexity": "All of these test operators are generally **O(1)** in Space and Time complexity\n\nComplexity may differ depending on the provided type `'a`",
+      "sections": [
+        {
+          "name": "tests",
+          "title": "Tests",
+          "hideTitle": true,
+          "entries": [
+            {
+              "name": "val-eq",
+              "code": "(=) : 'a -> 'a -> bool",
+              "desc": "Value equality",
+              "indexEntry": "(=)"
+            },
+            {
+              "name": "val-ineq",
+              "code": "(<>) : 'a -> 'a -> bool",
+              "desc": "Value inequality",
+              "indexEntry": "(<>)"
+            },
+            {
+              "name": "id-eq",
+              "code": "(==) : 'a -> 'a -> bool",
+              "desc": "Identity equality",
+              "indexEntry": "(==)"
+            },
+            {
+              "name": "id-ineq",
+              "code": "(!=) : 'a -> 'a -> bool",
+              "desc": "Identity inequality",
+              "indexEntry": "(!=)"
+            },
+            {
+              "name": "lt",
+              "code": "(<) : 'a -> 'a -> bool",
+              "desc": "Strictly smaller comparator",
+              "indexEntry": "(<)"
+            },
+            {
+              "name": "gt",
+              "code": "(>) : 'a -> 'a -> bool",
+              "desc": "Strictly greater comparator",
+              "indexEntry": "(>)"
+            },
+            {
+              "name": "lte",
+              "code": "(<=) : 'a -> 'a -> bool",
+              "desc": "Smaller or equal comparator",
+              "indexEntry": "(<=)"
+            },
+            {
+              "name": "gte",
+              "code": "(>=) : 'a -> 'a -> bool",
+              "desc": "Greater or equal comparator",
+              "indexEntry": "(>=)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "global-scope",
+      "title": "Global scope builtins",
+      "complexity": "All of these functions are generally **O(1)** in Space and Time complexity unless other specified\n\nComplexity may differ depending on the provided type `'a`",
+      "sections": [
+        {
+          "name": "comparators",
+          "title": "Polymorphic comparators",
+          "entries": [
+            {
+              "name": "compare",
+              "code": "compare : 'a -> 'a -> int",
+              "desc": "Returns a positive integer when x > y, negative if x < y, and 0 if x = y",
+              "indexEntry": "compare"
+            },
+            {
+              "name": "max",
+              "code": "max : 'a -> 'a -> 'a",
+              "desc": "Returns the largest element in a set of two",
+              "indexEntry": "max"
+            },
+            {
+              "name": "min",
+              "code": "min : 'a -> 'a -> 'a",
+              "desc": "Returns the smallest element in a set of two",
+              "indexEntry": "min"
+            }
+          ]
+        },
+        {
+          "name": "stdout",
+          "title": "Stdout",
+          "entries": [
+            {
+              "name": "print-int",
+              "code": "print_int : int -> unit",
+              "desc": "Print an integer",
+              "indexEntry": "print_int"
+            },
+            {
+              "name": "print-float",
+              "code": "print_float : float -> unit",
+              "desc": "Print a real number",
+              "indexEntry": "print_float"
+            },
+            {
+              "name": "print-string",
+              "code": "print_string : string -> unit",
+              "desc": "Print a string",
+              "indexEntry": "print_string"
+            },
+            {
+              "name": "print-lr",
+              "code": "print_newline : unit -> unit",
+              "desc": "Print a line return character",
+              "indexEntry": "print_newline"
+            }
+          ]
+        },
+        {
+          "name": "casting",
+          "title": "Type Casting",
+          "complexity": "`'a_of_string` functions are **O(N)** with N length of the string. This should be considered O(1) for most applications",
+          "entries": [
+            {
+              "name": "ignore",
+              "code": "ignore : 'a -> unit",
+              "desc": "Cast value to unit",
+              "indexEntry": "ignore"
+            },
+            {
+              "name": "float-of-int",
+              "code": "float_of_int : int -> float",
+              "desc": "Cast integer to float",
+              "indexEntry": "float_of_int"
+            },
+            {
+              "name": "int-of-float",
+              "code": "int_of_float : float -> int",
+              "desc": "Cast a real number to the integer of its truncated decimal representation",
+              "indexEntry": "int_of_float"
+            },
+            {
+              "name": "string-of-int",
+              "code": "string_of_int : int -> string",
+              "desc": "Integer to string",
+              "indexEntry": "string_of_int"
+            },
+            {
+              "name": "int-of-string",
+              "code": "int_of_string : string -> int",
+              "desc": "Parse a string as an integer",
+              "indexEntry": "int_of_string"
+            },
+            {
+              "name": "string-of-float",
+              "code": "string_of_float : float -> string",
+              "desc": "Float to string",
+              "indexEntry": "string_of_float"
+            },
+            {
+              "name": "float-of-string",
+              "code": "float_of_string : string -> float",
+              "desc": "Parse a string as a floating number",
+              "indexEntry": "float_of_string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "unit",
+      "title": "Unit `unit`",
+      "desc": "Only type member: `()`\n\n**Warning:** Tests for `unit` should use `=` and `<>`, not `==` and `!=`",
+      "sections": []
+    },
+    {
+      "name": "bool",
+      "title": "Boolean `bool`",
+      "complexity": "All of these operators are **O(1)** in Space and Time complexity",
+      "sections": [
+        {
+          "name": "operators",
+          "title": "Boolean operators",
+          "entries": [
+            {
+              "name": "not",
+              "code": "(not) : bool -> bool",
+              "desc": "Formal negation",
+              "indexEntry": "(not)"
+            },
+            {
+              "name": "and",
+              "code": "(&&) : bool -> bool -> bool",
+              "desc": "Formal logical AND",
+              "indexEntry": "(&&)"
+            },
+            {
+              "name": "or",
+              "code": "(||) : bool -> bool -> bool",
+              "desc": "Formal logical OR",
+              "indexEntry": "(||)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "int",
+      "title": "Integer `int`",
+      "sections": [
+        {
+          "name": "operators",
+          "title": "Integer operators",
+          "entries": [
+            {
+              "name": "add",
+              "code": "(+) : int -> int -> int",
+              "desc": "Integer addition",
+              "indexEntry": "(+)"
+            },
+            {
+              "name": "sub",
+              "code": "(-) : int -> int -> int",
+              "desc": "Integer difference",
+              "indexEntry": "(-)"
+            },
+            {
+              "name": "mult",
+              "code": "( * ) : int -> int -> int",
+              "desc": "Integer multiplication",
+              "indexEntry": "( * )"
+            },
+            {
+              "name": "div",
+              "code": "(/) : int -> int -> int",
+              "desc": "Integer division quotient",
+              "indexEntry": "(/)"
+            },
+            {
+              "name": "mod",
+              "code": "(mod) : int -> int -> int",
+              "desc": "Integer division remainder",
+              "indexEntry": "(mod)"
+            }
+          ]
+        },
+        {
+          "name": "global-functions",
+          "title": "Integer global functions",
+          "entries": [
+            {
+              "name": "abs",
+              "code": "abs : int -> int",
+              "desc": "Integer absolute value (canonical distance to 0)",
+              "indexEntry": "abs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "float",
+      "title": "Float `float`",
+      "sections": [
+        {
+          "name": "operators",
+          "title": "Float operators",
+          "entries": [
+            {
+              "name": "add",
+              "code": "(+.) : flaot -> flaot -> flaot",
+              "desc": "Real number addition",
+              "indexEntry": "(+.)"
+            },
+            {
+              "name": "sub",
+              "code": "(-.) : float -> float -> float",
+              "desc": "Real number difference",
+              "indexEntry": "(-.)"
+            },
+            {
+              "name": "mult",
+              "code": "( *.) : float -> float -> float",
+              "desc": "Real number multiplication",
+              "indexEntry": "( *.)"
+            },
+            {
+              "name": "div",
+              "code": "(/.) : float -> float -> float",
+              "desc": "Real number division",
+              "indexEntry": "(/.)"
+            },
+            {
+              "name": "pow",
+              "code": "( ** ) : float -> float -> float",
+              "desc": "Real number power",
+              "indexEntry": "( ** )"
+            }
+          ]
+        },
+        {
+          "name": "global-functions",
+          "title": "Float global functions",
+          "entries": [
+            {
+              "name": "sqrt",
+              "code": "sqrt : float -> float",
+              "desc": "Real square root",
+              "indexEntry": "sqrt"
+            },
+            {
+              "name": "exp",
+              "code": "exp : float -> float",
+              "desc": "Natural real exponentiation",
+              "indexEntry": "exp"
+            },
+            {
+              "name": "log",
+              "code": "log : float -> float",
+              "desc": "Natural real logarithm",
+              "indexEntry": "log"
+            },
+            {
+              "name": "log10",
+              "code": "log10 : float -> float",
+              "desc": "Base 10 real logarithm",
+              "indexEntry": "log10"
+            },
+            {
+              "name": "sin",
+              "code": "sin : float -> float",
+              "desc": "Sine function",
+              "indexEntry": "sin"
+            },
+            {
+              "name": "cos",
+              "code": "cos : float -> float",
+              "desc": "Cosine function",
+              "indexEntry": "cos"
+            },
+            {
+              "name": "tan",
+              "code": "tan : float -> float",
+              "desc": "Tangent function",
+              "indexEntry": "tan"
+            },
+            {
+              "name": "asin",
+              "code": "asin : float -> float",
+              "desc": "Sine's reciprocal function",
+              "indexEntry": "asin"
+            },
+            {
+              "name": "acos",
+              "code": "acos : float -> float",
+              "desc": "Cosine's reciprocal function",
+              "indexEntry": "acos"
+            },
+            {
+              "name": "atan",
+              "code": "atan : float -> float",
+              "desc": "Tangent's reciprocal function",
+              "indexEntry": "atan"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tuple",
+      "title": "Tuple",
+      "complexity": "All of these functions are **O(1)** in Space and Time complexity",
+      "sections": [
+        {
+          "name": "global-functions",
+          "title": "Couple `'a * 'b` global functions",
+          "entries": [
+            {
+              "name": "fst",
+              "code": "fst : ('a, 'b) -> 'a",
+              "desc": "Get first element of a couple",
+              "indexEntry": "fst"
+            },
+            {
+              "name": "snd",
+              "code": "snd : ('a, 'b) -> 'b",
+              "desc": "Get second element of a couple",
+              "indexEntry": "snd"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "string",
+      "title": "String `string`",
+      "sections": [
+        {
+          "name": "operators",
+          "title": "String operators",
+          "entries": [
+            {
+              "name": "add",
+              "code": "(^) : string -> string -> string",
+              "desc": "String concatenation",
+              "complexity": "**O(N + M)** with N, M lengths of the given strings",
+              "indexEntry": "(^)"
+            },
+            {
+              "name": "get-short",
+              "code": "str.[idx] -> char",
+              "desc": "Equivalent to `String.get str idx`",
+              "complexity": "**O(1)**",
+              "indexEntry": "String.[]"
+            }
+          ]
+        },
+        {
+          "name": "module",
+          "title": "String module functions",
+          "entries": [
+            {
+              "name": "length",
+              "code": "String.length : string -> int",
+              "desc": "Get string length",
+              "complexity": "**O(1)**",
+              "indexEntry": "String.length"
+            },
+            {
+              "name": "get",
+              "code": "String.get : string -> int -> char",
+              "desc": "Get char at given index",
+              "complexity": "**O(1)**",
+              "indexEntry": "String.get"
+            },
+            {
+              "name": "substr",
+              "code": "String.sub : string -> start: int -> lenght: int -> string",
+              "desc": "Create substring given start index and length of sub-string",
+              "complexity": "**O(N)** with N being created string length",
+              "indexEntry": "String.sub"
+            },
+            {
+              "name": "make",
+              "code": "String.make : int -> char -> string",
+              "desc": "Create a string with given length and filled with given character",
+              "complexity": "**O(N)** with N string length",
+              "indexEntry": "String.make"
+            },
+            {
+              "name": "init",
+              "code": "String.init : int -> (int -> char) -> string",
+              "desc": "Create a string of given length and by using characters returned by given function",
+              "complexity": "**O(N)** with N string length",
+              "indexEntry": "String.init"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "list",
+      "title": "List `'a list`",
+      "sections": [
+        {
+          "name": "operators",
+          "title": "List operators",
+          "entries": [
+            {
+              "name": "cons",
+              "code": "(::) : 'a -> 'a list -> 'a list",
+              "desc": "List push to head or pull head",
+              "complexity": "**O(1)**",
+              "indexEntry": "(::)"
+            },
+            {
+              "name": "concat",
+              "code": "(@) : 'a list -> 'a list -> 'a list",
+              "desc": "List concatenation",
+              "complexity": "**O(N)** with N length of the first list",
+              "indexEntry": "(@)"
+            }
+          ]
+        },
+        {
+          "name": "module",
+          "title": "List module functions",
+          "entries": [
+            {
+              "name": "length",
+              "code": "List.length : 'a list -> int",
+              "desc": "Get list's size\n\n**Warning:** Never use, this is linear in time",
+              "complexity": "**O(N)** with N length of the list",
+              "indexEntry": "List.length"
+            },
+            {
+              "name": "head",
+              "code": "List.hd : 'a list -> 'a",
+              "desc": "Get list's head (first element)",
+              "complexity": "**O(1)**",
+              "indexEntry": "List.hd"
+            },
+            {
+              "name": "tail",
+              "code": "List.tl : 'a list -> 'a list",
+              "desc": "Get list's tail (list minus list head)",
+              "complexity": "**O(1)**",
+              "indexEntry": "List.tl"
+            },
+            {
+              "name": "nth",
+              "code": "List.nth : 'a list -> int -> 'a",
+              "desc": "Get list's nth element\n\n**Note:** Lists are 0-indexed. First element is at index 0.\n\n**Warning:** Avoid using, this is linear in time",
+              "complexity": "**O(N)** with N index of sought element",
+              "indexEntry": "List.nth"
+            },
+            {
+              "name": "mem",
+              "code": "List.mem : 'a list -> 'a -> bool",
+              "desc": "Test whether second argument is an element of given list",
+              "complexity": "**O(N)** with N list length",
+              "indexEntry": "List.mem"
+            },
+            {
+              "name": "rev",
+              "code": "List.rev : 'a list -> 'a list",
+              "desc": "Create a list with the same elements but with reversed order",
+              "complexity": "**O(N)** with N list length",
+              "indexEntry": "List.rev"
+            },
+            {
+              "name": "iter",
+              "code": "List.iter : ('a -> unit) -> 'a list -> unit",
+              "desc": "Applies given function to all elements of the list, from head to tail",
+              "complexity": "**O(N)** with N list length",
+              "indexEntry": "List.iter"
+            },
+            {
+              "name": "map",
+              "code": "List.map : ('a -> 'b) -> 'a list -> 'b list",
+              "desc": "Applies given function to all elements of the list and returns the results as a list",
+              "complexity": "**O(N)** with N list length",
+              "indexEntry": "List.map"
+            },
+            {
+              "name": "rfold",
+              "code": "List.fold_right : ('a -> 'b -> 'b) -> 'a list -> 'b -> 'b",
+              "desc": "Reduces a list with given function and initial value from tail to head",
+              "complexity": "**O(N)** with N list length",
+              "indexEntry": "List.fold_right"
+            },
+            {
+              "name": "lfold",
+              "code": "List.fold_left : ('a -> 'b -> 'a) -> 'a -> 'b list -> 'a",
+              "desc": "Same as `List.fold_right` but from head to tail and with different argument order",
+              "complexity": "**O(N)** with N list length",
+              "indexEntry": "List.fold_left"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "array",
+      "title": "Array `'a array`",
+      "sections": [
+        {
+          "name": "module",
+          "title": "Array module functions",
+          "entries": [
+            {
+              "name": "length",
+              "code": "Array.length : 'a array -> int",
+              "desc": "Get array length",
+              "complexity": "**O(1)**",
+              "indexEntry": "Array.length"
+            },
+            {
+              "name": "make",
+              "code": "Array.make : int -> 'a -> 'a array",
+              "desc": "Create an array with given length and filled with given element",
+              "complexity": "**O(N)** with N array length",
+              "indexEntry": "Array.make"
+            },
+            {
+              "name": "make-matrix",
+              "code": "Array.make_matrix : int -> int -> 'a -> 'a array array",
+              "desc": "Create a two dimensional array with given width, height and filled with given element\n\n**Warning:** Watch your steps as filler value is passed by reference and use `Array.init` instead if necessary",
+              "complexity": "**O(N * M)** with N, M width and height",
+              "indexEntry": "Array.make_matrix"
+            },
+            {
+              "name": "init",
+              "code": "Array.init : int -> (int -> 'a) -> 'a array",
+              "desc": "Create an array of given length and by using values returned by given function",
+              "complexity": "**O(N)** with N array length",
+              "indexEntry": "Array.init"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "func",
+      "title": "Function `<fun>`",
+      "sections": [
+        {
+          "name": "definition",
+          "title": "Function definition",
+          "entries": [
+            {
+              "name": "def",
+              "code": "let foo = function x -> x + x;;\nlet foo = fun x -> x + x;;\nlet foo x = x + x;;",
+              "desc": "**Warning:** Only `function` syntax allows for matching\n\n**Warning:** Recursivity requires `rec` keyword",
+              "indexEntry": "Function definition"
+            },
+            {
+              "name": "pattern-matching",
+              "code": "let bar = function\n  | 42 -> \"yay\"\n  | _  -> \"nay\";;",
+              "desc": "**Warning:** Only `function` syntax allows for matching",
+              "indexEntry": "Function with pattern matching"
+            },
+            {
+              "name": "recursivity",
+              "code": "let rec factorial = function\n  | 0 -> 1\n  | n -> n * fact (n - 1);;",
+              "desc": "",
+              "indexEntry": "Recursive function"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "implementations",
+      "title": "Useful implementations",
+      "sections": [
+        {
+          "name": "math",
+          "title": "Math",
+          "entries": [
+            {
+              "name": "gcd",
+              "code": "let rec gcd a = function\n  | 0 -> a\n  | b -> gcd b (a mod b);;",
+              "desc": "Greatest common denominator of two integers",
+              "indexEntry": "gcd"
+            }
+          ]
+        },
+        {
+          "name": "qol",
+          "title": "Quality of life",
+          "entries": [
+            {
+              "name": "string-of-char",
+              "code": "let string_of_char chr = String.make 1 chr;;",
+              "desc": "",
+              "indexEntry": "string_of_char"
+            },
+            {
+              "name": "char-of-string",
+              "code": "let char_of_string str = String.get str 0;;",
+              "desc": "",
+              "indexEntry": "char_of_string"
+            },
+            {
+              "name": "string-of-array",
+              "code": "let string_of_array t = String.init (Array.length t) (Array.get t);;",
+              "desc": "Cast a `char array` into a string",
+              "indexEntry": "string_of_array"
+            },
+            {
+              "name": "array-of-string",
+              "code": "let array_of_string s = Array.init (String.length s) (String.get s);;",
+              "desc": "Cast a string into a `char array`",
+              "indexEntry": "array_of_string"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
