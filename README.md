@@ -84,6 +84,7 @@
 - <a href="#implementations-qol-array-of-string">array_of_string</a>
 - <a href="#float-global-functions-asin">asin</a>
 - <a href="#float-global-functions-atan">atan</a>
+- <a href="#implementations-math-binomial">binomial</a>
 - <a href="#implementations-qol-char-of-string">char_of_string</a>
 - <a href="#global-scope-comparators-compare">compare</a>
 - <a href="#float-global-functions-cos">cos</a>
@@ -95,10 +96,13 @@
 - <a href="#global-scope-casting-ignore">ignore</a>
 - <a href="#global-scope-casting-int-of-float">int_of_float</a>
 - <a href="#global-scope-casting-int-of-string">int_of_string</a>
+- <a href="#implementations-math-is_prime">is_prime</a>
+- <a href="#implementations-math-lcm">lcm</a>
 - <a href="#float-global-functions-log">log</a>
 - <a href="#float-global-functions-log10">log10</a>
 - <a href="#global-scope-comparators-max">max</a>
 - <a href="#global-scope-comparators-min">min</a>
+- <a href="#implementations-math-power">power</a>
 - <a href="#global-scope-stdout-print-float">print_float</a>
 - <a href="#global-scope-stdout-print-int">print_int</a>
 - <a href="#global-scope-stdout-print-lr">print_newline</a>
@@ -698,6 +702,39 @@ let rec gcd a = function
   | b -> gcd b (a mod b);;
 ```
 Greatest common denominator of two integers
+
+<a name="implementations-math-lcm"></a>
+```ocaml
+let lcm a b = (a * b) / (gcd a b);;
+```
+Least common multiple of two integers
+
+<a name="implementations-math-power"></a>
+```ocaml
+let rec power base exp = function
+  | 0 -> 1
+  | _ -> base * power base (exp - 1)
+```
+Raise a base to an exponent (base^exp)
+
+<a name="implementations-math-is_prime"></a>
+```ocaml
+let is_prime n =
+  let rec check_divisor d =
+    d * d > n || (n mod d <> 0 && check_divisor (d + 1))
+  in
+  n > 1 && check_divisor 2;;
+```
+Checks whether a number is prime.
+
+<a name="implementations-math-binomial"></a>
+```ocaml
+let binomial n k =
+  factorial n / (factorial k * factorial (n - k))
+```
+Calculates the binomial coefficient (n choose k).
+
+**Warning:** `factorial` does not exist by default in OCaml. An implementation of it can be found <a href="#func-definition-recursivity">here</a>
 
 ### <a name="implementations-qol"></a>Quality of life
 
