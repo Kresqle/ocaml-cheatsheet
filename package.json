@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Personal documentation for some Ocaml features",
   "main": "build/index.js",
-  "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.10.1"
+  },
   "scripts": {
     "makedoc": "tsc && node build/makedoc.js"
   },
